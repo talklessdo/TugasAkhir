@@ -54,7 +54,7 @@ public class Login extends AppCompatActivity {
             password.setError("Password tidak boleh kosong");
             return;
         }
-        if (userPassword.length() < 3){
+        if (userPassword.length() < 4){
             password.requestFocus();
             password.setError("Password minimal 3 karakter");
             return;
