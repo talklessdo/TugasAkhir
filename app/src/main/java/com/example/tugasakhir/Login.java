@@ -67,7 +67,7 @@ public class Login extends AppCompatActivity {
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 LoginResponse loginResponse = response.body();
                 if (response.isSuccessful()){
-                    if (loginResponse.getError().equals("200")){
+                    if (loginResponse.getKode().equals("200")){
                         userManager.saveUser(loginResponse.getData());
                         Intent intent = new Intent(Login.this,Sample.class);
                         startActivity(intent);

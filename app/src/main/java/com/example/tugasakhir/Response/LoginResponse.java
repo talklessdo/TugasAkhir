@@ -2,11 +2,11 @@ package com.example.tugasakhir.Response;
 
 public class LoginResponse {
     Data data;
-    String error;
+    String kode;
 
-    public LoginResponse(Data data, String error) {
+    public LoginResponse(Data data, String kode) {
         this.data = data;
-        this.error = error;
+        this.kode = kode;
     }
 
     public Data getData() {
@@ -17,11 +17,11 @@ public class LoginResponse {
         this.data = data;
     }
 
-    public String getError() {
-        return error;
+    public String getKode() {
+        return kode;
     }
 
-    public void setError(String error) {
-        this.error = error;
+    public void setKode(String kode) {
+        this.kode = kode;
     }
 }
