@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Toast;
 
@@ -36,6 +37,28 @@ public class Login extends AppCompatActivity {
     public void login(View view) {
         String userEmail = email.getText().toString();
         String userPassword = password.getText().toString();
+
+        if (userEmail.isEmpty()){
+            email.requestFocus();
+            email.setError("Email tidak boleh kosong");
+            return;
+        }
+        if (!Patterns.EMAIL_ADDRESS.matcher(userEmail).matches()){
+            email.requestFocus();
+            email.setError("Masukkan email yang benar");
+            return;
+        }
+
+        if (userPassword.isEmpty()){
+            password.requestFocus();
+            password.setError("Password tidak boleh kosong");
+            return;
+        }
+        if (userPassword.length() < 3){
+            password.requestFocus();
+            password.setError("Password minimal 3 karakter");
+            return;
+        }
 
         Retrofit retrofit = new APIConfig().loadData();
         APIService service = retrofit.create(APIService.class);
